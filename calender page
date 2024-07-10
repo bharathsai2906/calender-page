@@ -1,0 +1,104 @@
+HTML....
+
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Month Calender</title>
+    <link rel="stylesheet" href="clock.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calender">
+        <div class="month">
+          <div class="date">
+            <h1></h1>
+            <p></p>
+          </div>
+        </div>
+        <div class="weekdays">
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+          <div>Sun</div>
+        </div>
+        <div class="days"></div>
+      </div>
+    </div>
+    <script src="clock.js"></script>
+  </body>
+</html>
+
+  .CSS...
+
+  body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  font-family: cursive;
+  background-color: slateblue;
+}
+
+.calendar-container {
+  background-color: white;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.month-name {
+  margin: 0;
+  background-color: orangered;
+  color: white;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.day-name {
+  font-size: 20px;
+  color: darkgray;
+}
+
+.day-number {
+  font-size: 80px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.year {
+  margin: 20px 0;
+  font-size: 20px;
+  color: darkgray;
+  font-weight: 500;
+}
+
+  .JS...
+
+const monthNameEl = document.getElementById("month-name");
+const dayNameEl = document.getElementById("day-name");
+const dayNumEl = document.getElementById("day-number");
+const yearEl = document.getElementById("year");
+
+const date = new Date();
+const month = date.getMonth();
+monthNameEl.innerText = date.toLocaleString("en", {
+  month: "long",
+});
+
+dayNameEl.innerText = date.toLocaleString("en", {
+  weekday: "long",
+});
+
+dayNumEl.innerText = date.getDate();
+
+yearEl.innerText = date.getFullYear();
